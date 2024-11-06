@@ -20,7 +20,7 @@ const mockData = [
   },
   {
     id: 2,
-    text: `I love the policy of Gk jewellers. Exchange. Policy is quite real. And the product emarld ring was outstanding. One can say that Gk jewellers is the name of trust.I love the policy of Gk jewellers. Exchange. Policy is quite real. And the product emarld ring was outstanding.`,
+    text: `I love the policy of Gk jewellers. Exchange. Policy is quite real. And the product emarld ring was outstanding.`,
     score: 4,
   },
   {
@@ -35,33 +35,28 @@ const mockData = [
   },
   {
     id: 5,
-    text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
-    score: 2,
+    text: `Good experience. Product quality is outstanding, got what i ordered❣️❣️❣️`,
+    score: 5,
   },
   {
     id: 6,
-    text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
+    text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk `,
     score: 2,
   },
   {
     id: 7,
     text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
-    score: 2,
+    score: 3,
   },
   {
     id: 8,
     text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
-    score: 2,
+    score: 1,
   },
   {
     id: 9,
     text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
-    score: 2,
-  },
-  {
-    id: 10,
-    text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
-    score: 2,
+    score: 4,
   },
 ];
 
@@ -108,9 +103,11 @@ const StyledText = styled(Paragraph)`
 
 const StarRating = () => {
   const [visible, setVisible] = useState(5);
+  const [showMore, setShowMore] = useState(false);
 
   const handleMoreData = () => {
     setVisible((prevValue) => prevValue + 5);
+    setShowMore(false);
   };
 
   return (
@@ -133,6 +130,14 @@ const StarRating = () => {
                 />
               ))}
             </Flex>
+
+            {/* {showMore && item.text.length > 150
+              ? item.text
+              : `${item.text.substring(0, 150)}`}
+            <Button key={item.id} onClick={() => setShowMore(!showMore)}>
+              {showMore ? "Show Less" : "Show More"}{" "}
+            </Button> */}
+
             <StyledText>{item.text}</StyledText>
           </StyledCard>
         ))}

@@ -5,6 +5,17 @@ export const cartData = (data = [], action: any) => {
     case ADD_TO_CART:
       console.log("ADD_TO_CART condition", action);
       return [...data, action.data];
+
+    // const existingItem = data
+    //   .map((item: any) => item)
+    //   .find((item: any) => item.id === action.payload.id);
+
+    // if (!existingItem) {
+    //   return [...data, action.data];
+    // } else {
+    //   return "Product already added";
+    // }
+
     case REMOVE_FROM_CART:
       console.log("REMOVE_FROM_CART condition", action);
       //   data.length = data.length ? data.length - 1 : [];

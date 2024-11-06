@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../images/logo.png";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Affix, Divider, Image, Layout, Space } from "antd";
+import { Affix, Divider, Image, Layout, Space, Typography } from "antd";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+const { Text } = Typography;
 
 const { Header } = Layout;
 
@@ -71,7 +72,7 @@ const StyledDivider1 = styled(Divider)`
   margin: 0;
 `;
 
-const StyledLength = styled.div`
+const StyledLength = styled(Text)`
   color: white;
   padding: 0;
   margin: 0;
@@ -96,7 +97,11 @@ const StyledH1 = styled.div`
 const App = () => {
   const [top, setTop] = React.useState<number>(0);
   const result = useSelector((state: any) => state.cartData);
-
+  let totalAmount =
+    result.length &&
+    result
+      .map((item: any) => item.price)
+      .reduce((prev: any, next: any) => prev + next);
   return (
     <Affix offsetTop={top}>
       <StyledHeader
@@ -129,7 +134,7 @@ const App = () => {
             </StyledCart>
             <StyledDivider type="vertical" />
             <StyledTotalSpace>
-              <StyledLength>{result.length} Rs</StyledLength>
+              <StyledLength>{totalAmount.toFixed(2)} Rs</StyledLength>
               <StyledLength>{result.length} items</StyledLength>
             </StyledTotalSpace>
             {/* <StyledLength> 0 Rs</StyledLength> */}

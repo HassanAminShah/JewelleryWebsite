@@ -10,6 +10,7 @@ import FindUs from "../../components/FindUs";
 import MapComponent from "../../components/MapComponent";
 import Guarantee from "../../components/Guarantee";
 import Reviews from "../Reviews";
+import ApiDataComponent from "../../components/ApiDataComponent";
 
 const { Meta } = Card;
 const { Text, Title, Link, Paragraph } = Typography;
@@ -67,59 +68,11 @@ const StyledButton = styled(Button)`
   top: 60%;
 `;
 
-const StyledRow = styled(Row)`
-  width: 80%;
-  display: flex;
-  flex-direction: row;
-  column-gap: 2rem;
-  row-gap: 2rem;
-  margin: 2rem 0rem;
-`;
-
-const StyledP = styled.p`
-  text-decoration: line-through;
-`;
-
-const StyledPrice = styled.p`
-  display: flex;
-  justify-content: center;
-  column-gap: 0.6rem;
-`;
-
-const StyledPr = styled.p`
-  font-weight: 600;
-`;
-
-const StyledLoadButton = styled(Button)`
-  background-color: #061725;
-  color: #ceaa82;
-`;
-
-const StyledSpace = styled(Space)``;
-const StyledCard = styled(Card)`
-  .ant-card-body {
-    padding: 0.5rem;
-  }
-  .ant-card.ant-card-bordered.ant-card-hoverable.sc-hsfCcR.estQfG.css-dev-only-do-not-override-apn68 {
-    height: 400px;
-  }
+const StyledApiSpace = styled(Space)`
+  /* width: 100%; */
 `;
 
 const Index = () => {
-  const [visible, setVisible] = useState(4);
-
-  const handleMoreData = () => {
-    setVisible((prevValue) => prevValue + 4);
-  };
-
-  const dispatch = useDispatch();
-
-  const data = useSelector((state: any) => state.productData);
-
-  useEffect(() => {
-    dispatch(productList());
-  }, []);
-
   return (
     <>
       <StyledMainDiv>
@@ -136,80 +89,18 @@ const Index = () => {
         </StyledDiv>
 
         <StyledH3>NEW ARRIVALS</StyledH3>
-        <StyledRow gutter={16} justify="space-between">
-          {data.slice(0, visible).map((item: any) => (
-            <StyledCard
-              hoverable
-              style={{ width: 260, border: "1px solid black", padding: "1rem" }}
-              cover={
-                <img alt="example" src={item.image} width={150} height={270} />
-              }
-            >
-              <Meta title={item.title.toUpperCase()} className="meta-tag" />
-              <StyledPrice>
-                <StyledP>RS {item.price}</StyledP>
-                <StyledPr> RS {item.price * 2}</StyledPr>
-              </StyledPrice>
-            </StyledCard>
-          ))}
-        </StyledRow>
-        <Button onClick={handleMoreData}>Show More</Button>
+
+        <StyledApiSpace>
+          <ApiDataComponent />
+        </StyledApiSpace>
       </StyledMainDiv>
 
       <Guarantee />
       <Reviews />
       <FindUs />
       {/* <MapComponent /> */}
-      {/* <StyledCarousel afterChange={onChange} arrows infinite slidesToShow={4}>
-        {data.map((item: any) => (
-          // <StyledCol>
-          <StyledCard
-            hoverable
-            style={{ width: 260, border: "1px solid black", padding: "1rem" }}
-            cover={
-              <img alt="example" src={item.image} width={150} height={300} />
-            }
-          >
-            <Meta title={item.title.toUpperCase()} className="meta-tag" />
-            <StyledPrice>
-              <StyledP>RS {item.price}</StyledP>
-              <StyledPr> RS {item.price * 2}</StyledPr>
-            </StyledPrice>
-          </StyledCard>
-        ))}
-      </StyledCarousel> */}
     </>
   );
 };
 
 export default Index;
-
-// const YourComponent = () => {
-//   // Your initial data
-//   const initialData = [
-//     // ... your data array
-//   ];
-
-//   // State to manage displayed data and load more button
-//   const [displayedData, setDisplayedData] = useState(initialData);
-//   const [visibleItemCount, setVisibleItemCount] = useState(5); // Change this as needed
-
-//   // Handler for the "Load More" button
-//   const handleLoadMore = () => {
-//     // Increase the visible item count (you can adjust this logic based on your requirements)
-//     setVisibleItemCount((prevCount) => prevCount + 5);
-
-//     // Update displayedData with additional items
-//     setDisplayedData(initialData.slice(0, visibleItemCount + 5));
-//   };
-
-//   return (
-//     <div>
-//       {displayedData.map((item, index) => (
-//         // Render your data items here
-//         <div key={index}>{item}</div>
-//       ))}
-//       <button onClick={handleLoadMore}>Load More</button>
-//     </div>
-//   );
-// };
