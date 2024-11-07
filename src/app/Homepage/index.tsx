@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
 import Gemstone from "../../images/Gemstone.jpg";
-import { addToCart, EmptyCart, RemoveFromCart } from "../../redux/action";
-import { productList } from "../../redux/productAction";
 import styled from "styled-components";
 import { Button, Flex } from "antd";
-import { Card, Row, Carousel, Typography, Space } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { Card, Row, Col, Typography, Space } from "antd";
 import FindUs from "../../components/FindUs";
-import MapComponent from "../../components/MapComponent";
 import Guarantee from "../../components/Guarantee";
 import Reviews from "../Reviews";
 import ApiDataComponent from "../../components/ApiDataComponent";
+import about1 from "../../images/about1.jpg";
+import about2 from "../../images/about2.jpg";
+import about3 from "../../images/about3.jpg";
 
 const { Meta } = Card;
 const { Text, Title, Link, Paragraph } = Typography;
@@ -71,6 +69,56 @@ const StyledButton = styled(Button)`
 const StyledApiSpace = styled(Space)`
   /* width: 100%; */
 `;
+const StyledCol = styled(Col)`
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+`;
+
+const StyledSpace = styled(Space)`
+  margin: 1rem 8rem;
+  .ant-space-item {
+    width: 100%;
+  }
+`;
+
+const StyledFlex = styled(Flex)`
+  padding: 2rem;
+  margin: 0;
+  border-radius: 0px 0px 10px 10px;
+  background: black;
+  color: white;
+  .ant-typography.css-dev-only-do-not-override-apn68 {
+    color: white;
+  }
+`;
+
+const Styled1Card = styled(Card)`
+  .ant-card-body {
+    padding: 0px;
+  }
+`;
+
+const StyledRelFlex = styled(Flex)`
+  position: relative;
+`;
+
+const StyledPara = styled(Paragraph)`
+  position: absolute;
+  padding: 0.3rem;
+  font-weight: 500;
+  font-size: 0.8rem;
+  top: -1rem;
+  right: 24%;
+  background: #ceaa82;
+  color: white;
+`;
+
+const StyledMainPara = styled(Paragraph)`
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 0rem 1rem;
+`;
 
 const Index = () => {
   return (
@@ -94,7 +142,65 @@ const Index = () => {
           <ApiDataComponent />
         </StyledApiSpace>
       </StyledMainDiv>
+      <StyledSpace>
+        <Row gutter={16} style={{ width: "100%" }}>
+          <StyledCol span={8}>
+            <Styled1Card hoverable cover={<img alt="example" src={about1} />}>
+              <StyledRelFlex>
+                <StyledPara>GEMSTONES, NATURAL GEMSTONES</StyledPara>
 
+                <StyledFlex vertical>
+                  <StyledMainPara>
+                    WHAT IS TOPAZ? TOPAZ HEALING PROPERTIES
+                  </StyledMainPara>
+                  <Paragraph>By Ubaid Advani</Paragraph>
+                  <Paragraph>
+                    TOPAZ GEMSTONE Topaz makes an ideal gem. A good hardness and
+                    desirable colors, combined with a relative abundance and
+                    availability mak...
+                  </Paragraph>
+                </StyledFlex>
+              </StyledRelFlex>
+            </Styled1Card>
+          </StyledCol>
+          <StyledCol span={8}>
+            <Styled1Card hoverable cover={<img alt="example" src={about2} />}>
+              <StyledRelFlex>
+                <StyledPara>GEMSTONES, NATURAL GEMSTONES</StyledPara>
+
+                <StyledFlex vertical>
+                  <StyledMainPara>
+                    The Sapphire Gemstone (Neelam Stone)
+                  </StyledMainPara>
+                  <Paragraph>By Ubaid Advani</Paragraph>
+                  <Paragraph>
+                    Sapphire (Neelam) is the most precious and valuable blue
+                    gemstone. It is a very desirable gemstone due to its
+                    excellent color, hardness...
+                  </Paragraph>
+                </StyledFlex>
+              </StyledRelFlex>
+            </Styled1Card>
+          </StyledCol>{" "}
+          <StyledCol span={8}>
+            <Styled1Card hoverable cover={<img alt="example" src={about3} />}>
+              <StyledRelFlex>
+                <StyledPara>GEMSTONES, NATURAL GEMSTONES</StyledPara>
+
+                <StyledFlex vertical>
+                  <StyledMainPara>100% Natural OPAL Gemstone </StyledMainPara>
+                  <Paragraph>By Ubaid Advani</Paragraph>
+                  <Paragraph>
+                    Opal Meaning, Healing Properties, and Benefits Opal is the
+                    most beautiful gemstone on the planet that is utilized since
+                    the old times f...
+                  </Paragraph>
+                </StyledFlex>
+              </StyledRelFlex>
+            </Styled1Card>
+          </StyledCol>
+        </Row>
+      </StyledSpace>
       <Guarantee />
       <Reviews />
       <FindUs />
