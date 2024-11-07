@@ -61,6 +61,9 @@ const StyledBreadcrumbItemCurr = styled(StyledBreadcrumbItem)``;
 const StyledBreadcrumb = styled(Breadcrumb)`
   display: flex;
   justify-content: center;
+  li.ant-breadcrumb-separator {
+    font-weight: 700;
+  }
 `;
 
 const StyledTextFlex = styled(Flex)`
@@ -107,8 +110,8 @@ const StyledEndText = styled(Flex)`
 const App = () => (
   <StyledMainDiv vertical>
     <StyledTitle className="about">RING SIZE</StyledTitle>
-    <StyledBreadcrumb separator=">">
-      <StyledBreadcrumbItem>Home</StyledBreadcrumbItem>
+    <StyledBreadcrumb>
+      <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
       <StyledBreadcrumbItemCurr>RING SIZE</StyledBreadcrumbItemCurr>
     </StyledBreadcrumb>
 

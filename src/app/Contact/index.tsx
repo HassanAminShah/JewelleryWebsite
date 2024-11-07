@@ -22,14 +22,17 @@ const StyledBreadcrumb = styled(Breadcrumb)`
   display: flex;
   justify-content: center;
   padding-bottom: 1rem;
+  li.ant-breadcrumb-separator {
+    font-weight: 700;
+  }
 `;
 
 const index = () => {
   return (
     <>
       <StyledTitle className="about">CONTACT US</StyledTitle>
-      <StyledBreadcrumb separator=">">
-        <StyledBreadcrumbItem>Home</StyledBreadcrumbItem>
+      <StyledBreadcrumb>
+        <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
         <StyledBreadcrumbItemCurr>CONTACT US</StyledBreadcrumbItemCurr>
       </StyledBreadcrumb>
       <MapComponent />

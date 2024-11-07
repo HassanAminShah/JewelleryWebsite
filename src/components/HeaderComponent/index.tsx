@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../images/logo.png";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, SearchOutlined } from "@ant-design/icons";
 import { Affix, Divider, Image, Layout, Space, Typography } from "antd";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -21,6 +21,7 @@ const items: any = [
     key: "SubMenu",
     href: "/collection",
   },
+
   {
     label: "ABOUT",
     key: "about",
@@ -52,6 +53,8 @@ const StyledHeader = styled(Header)`
 `;
 
 const StyledCart = styled.div`
+  margin-right: 1rem;
+  display: flex;
   color: white;
   width: 2rem;
   height: 2rem;
@@ -60,11 +63,16 @@ const StyledCart = styled.div`
 
 const StyledCartDiv = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const StyledDivider = styled(Divider)`
   border: 1px solid #515d67;
   top: 1.5em;
   height: 1.3rem;
+`;
+const StyledCartDivider = styled(StyledDivider)`
+  top: 0;
 `;
 const StyledDivider1 = styled(Divider)`
   border: 2px solid #f1e2cf;
@@ -102,6 +110,9 @@ const App = () => {
     result
       .map((item: any) => item.price)
       .reduce((prev: any, next: any) => prev + next);
+
+  const handleSearch = () => {};
+
   return (
     <Affix offsetTop={top}>
       <StyledHeader
@@ -129,10 +140,15 @@ const App = () => {
 
         <Link to="/cart">
           <StyledCartDiv>
+            {/* <Link to="/collection">
+              <StyledCart onClick={handleSearch}>
+                <SearchOutlined />
+              </StyledCart>
+            </Link> */}
             <StyledCart>
               <ShoppingCartOutlined />
             </StyledCart>
-            <StyledDivider type="vertical" />
+            <StyledCartDivider type="vertical" />
             <StyledTotalSpace>
               <StyledLength>{totalAmount.toFixed(2)} Rs</StyledLength>
               <StyledLength>{result.length} items</StyledLength>

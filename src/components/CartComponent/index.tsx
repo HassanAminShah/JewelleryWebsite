@@ -1,4 +1,4 @@
-import { Flex, Space, Typography, Table, Tag, Card } from "antd";
+import { Flex, Space, Typography, Table, Tag, Card, Breadcrumb } from "antd";
 import Paragraph from "antd/es/skeleton/Paragraph";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,10 +34,41 @@ const StyledSpace = styled.div`
 
 const StyledMainDiv = styled(Flex)`
   min-height: 60vh;
-  margin: 3rem 7rem;
+  margin: 1rem 7rem 4rem;
 `;
 const StyledInSpace = styled(Flex)`
   column-gap: 5rem;
+`;
+
+const StyledCard = styled(Card)`
+  height: 200px;
+  width: 300px;
+`;
+
+const StyledCartFlex = styled(Flex)`
+  padding: 1rem 2rem;
+  font-weight: 500;
+`;
+
+const StyledTitle = styled(Text)`
+  color: #061725;
+  font-size: 60px;
+  font-weight: 600;
+`;
+
+const StyledBreadcrumbItem = styled(Breadcrumb.Item)`
+  color: #061725;
+  font-weight: 500;
+`;
+const StyledBreadcrumbItemCurr = styled(StyledBreadcrumbItem)``;
+
+const StyledBreadcrumb = styled(Breadcrumb)`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  li.ant-breadcrumb-separator {
+    font-weight: 700;
+  }
 `;
 
 const CartComponent = () => {
@@ -55,7 +86,6 @@ const CartComponent = () => {
   console.log(dataTotal);
 
   const data1 = cartData.map((item: any) => item.title);
-  const data2 = cartData.map((item: any) => item.price);
 
   console.log(data1);
 
@@ -78,28 +108,31 @@ const CartComponent = () => {
       title: "Title",
       dataIndex: "title",
       key: "title",
+      width: "45%",
     },
     {
       title: "Price",
       dataIndex: "price",
       key: "price",
+      render: (price: any) => `${price} Rs`,
+      width: "15%",
     },
 
-    // {
-    //   title: "Quantity",
-    //   dataIndex: "quantity",
-    //   key: "quantity",
-    //   render: (qty) => `${(qty += cartData.length)}`,
-    // },
     {
       title: "Category",
       dataIndex: "category",
       key: "category",
+      render: (category) => `${category.toUpperCase()}`,
     },
   ];
 
   return (
     <StyledMainDiv vertical>
+      <StyledTitle className="about">CART</StyledTitle>
+      <StyledBreadcrumb>
+        <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
+        <StyledBreadcrumbItemCurr>CART</StyledBreadcrumbItemCurr>
+      </StyledBreadcrumb>
       <StyledInSpace>
         <StyledSpace>
           <Table<DataType>
@@ -109,13 +142,12 @@ const CartComponent = () => {
           />
         </StyledSpace>
 
-        <Card
-          style={{ width: "200px", height: "200px" }}
-          title="Total Amount"
-          bordered={false}
-        >
-          {totalAmount.toFixed(2)} Rs
-        </Card>
+        <StyledCard title="Cart Total" bordered={false}>
+          <StyledCartFlex vertical justify="center" align="start">
+            <Text>Total Amount : {totalAmount.toFixed(2)} Rs</Text>
+            <Text>Total Items : {cartData.length}</Text>
+          </StyledCartFlex>
+        </StyledCard>
       </StyledInSpace>
     </StyledMainDiv>
   );

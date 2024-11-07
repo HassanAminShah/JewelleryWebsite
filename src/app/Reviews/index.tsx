@@ -87,6 +87,9 @@ const StyledBreadcrumbItemCurr = styled(StyledBreadcrumbItem)``;
 const StyledBreadcrumb = styled(Breadcrumb)`
   display: flex;
   justify-content: center;
+  li.ant-breadcrumb-separator {
+    font-weight: 700;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -113,8 +116,8 @@ const StarRating = () => {
   return (
     <Flex align="center" vertical>
       <StyledTitle className="about">FB REVIEWS</StyledTitle>
-      <StyledBreadcrumb separator=">">
-        <StyledBreadcrumbItem>Home</StyledBreadcrumbItem>
+      <StyledBreadcrumb>
+        <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
         <StyledBreadcrumbItemCurr>FB REVIEWS</StyledBreadcrumbItemCurr>
       </StyledBreadcrumb>
 

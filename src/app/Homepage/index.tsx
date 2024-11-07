@@ -82,7 +82,7 @@ const Index = () => {
             Pakistan's Premier Gemstone Destination – Your Trusted Source for
             100% Certified Elegance!
           </StyledH2>
-          <StyledButton>Shop Now</StyledButton>
+          <StyledButton href="/collection">Shop Now</StyledButton>
           <StyledImg>
             <img src={Gemstone} alt="" />
           </StyledImg>

@@ -114,7 +114,9 @@ const StyledBreadcrumbItemCurr = styled(Breadcrumb.Item)`
 const StyledBreadcrumb = styled(Breadcrumb)`
   display: flex;
   justify-content: center;
-
+  li.ant-breadcrumb-separator {
+    font-weight: 700;
+  }
   .ant-breadcrumb-separator {
     color: white;
   }
@@ -123,8 +125,8 @@ const index = () => {
   return (
     <StyledMSpace direction="vertical">
       <StyledTitle className="about">ABOUT STONES</StyledTitle>
-      <StyledBreadcrumb separator=">">
-        <StyledBreadcrumbItem>Home</StyledBreadcrumbItem>
+      <StyledBreadcrumb>
+        <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
         <StyledBreadcrumbItemCurr>About Stones</StyledBreadcrumbItemCurr>
       </StyledBreadcrumb>
       <StyledMainSpace>
@@ -180,3 +182,56 @@ const index = () => {
 };
 
 export default index;
+
+// import React from "react";
+// import { DownOutlined } from "@ant-design/icons";
+// import type { MenuProps } from "antd";
+// import { Dropdown, Space } from "antd";
+
+// const items: MenuProps["items"] = [
+//   {
+//     label: (
+//       <a
+//         target="_blank"
+//         rel="noopener noreferrer"
+//         href="https://www.antgroup.com"
+//       >
+//         1st menu item
+//       </a>
+//     ),
+//     key: "0",
+//   },
+//   {
+//     label: (
+//       <a
+//         target="_blank"
+//         rel="noopener noreferrer"
+//         href="https://www.aliyun.com"
+//       >
+//         2nd menu item
+//       </a>
+//     ),
+//     key: "1",
+//   },
+//   {
+//     type: "divider",
+//   },
+//   {
+//     label: "3rd menu item（disabled）",
+//     key: "3",
+//     disabled: true,
+//   },
+// ];
+
+// const App = () => (
+//   <Dropdown menu={{ items }}>
+//     <a onClick={(e) => e.preventDefault()}>
+//       <Space>
+//         Hover me
+//         <DownOutlined />
+//       </Space>
+//     </a>
+//   </Dropdown>
+// );
+
+// export default App;

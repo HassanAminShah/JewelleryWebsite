@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Switch, Typography, Breadcrumb } from "antd";
+import { Switch, Typography, Breadcrumb, Space, Input } from "antd";
 import ApiDataComponent from "../../components/ApiDataComponent";
 import styled from "styled-components";
+import { productSearch } from "../../redux/productAction";
+import { useDispatch } from "react-redux";
 
 const { Paragraph, Text } = Typography;
 
@@ -20,6 +22,9 @@ const StyledBreadcrumbItemCurr = styled(StyledBreadcrumbItem)``;
 const StyledBreadcrumb = styled(Breadcrumb)`
   display: flex;
   justify-content: center;
+  li.ant-breadcrumb-separator {
+    font-weight: 700;
+  }
 `;
 
 const StyledMainDiv = styled.div`
@@ -30,16 +35,32 @@ const StyledMainDiv = styled.div`
   align-items: center;
 `;
 
+const StyledSpace = styled(Space)`
+  margin: 1rem 0rem;
+`;
+const StyledInput = styled(Input)`
+  width: 300px;
+`;
+
 const App = () => {
+  const dispatch = useDispatch();
+
   const [ellipsis, setEllipsis] = useState(true);
 
   return (
     <StyledMainDiv>
       <StyledTitle className="about">SHOP</StyledTitle>
-      <StyledBreadcrumb separator=">">
+      <StyledBreadcrumb>
         <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
         <StyledBreadcrumbItemCurr>SHOP</StyledBreadcrumbItemCurr>
       </StyledBreadcrumb>
+      {/* <StyledSpace>
+        <StyledInput
+          type="text"
+          placeholder="Search Product"
+          onChange={(event) => dispatch(productSearch(event.target.value))}
+        />
+      </StyledSpace> */}
       {/* <div style={{ width: "400px" }}>
         <Switch
           checked={ellipsis}
