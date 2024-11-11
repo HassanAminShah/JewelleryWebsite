@@ -133,14 +133,6 @@ const StarRating = () => {
                 />
               ))}
             </Flex>
-
-            {/* {showMore && item.text.length > 150
-              ? item.text
-              : `${item.text.substring(0, 150)}`}
-            <Button key={item.id} onClick={() => setShowMore(!showMore)}>
-              {showMore ? "Show Less" : "Show More"}{" "}
-            </Button> */}
-
             <StyledText>{item.text}</StyledText>
           </StyledCard>
         ))}

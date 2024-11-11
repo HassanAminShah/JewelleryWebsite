@@ -7,12 +7,11 @@ import wa from "../../images/wa.png";
 import React from "react";
 import styled from "styled-components";
 
-const { Paragraph, Text } = Typography;
+const { Text } = Typography;
 
 const StyledMainFlex = styled(Flex)`
   background: #0a1d2d;
   padding: 5rem 1rem;
-  /* background: red; */
 `;
 
 const StyledParagraph = styled(Text)`

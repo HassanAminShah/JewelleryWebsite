@@ -14,7 +14,7 @@ const StyledWSpace = styled(Space)`
 `;
 const index = () => {
   return (
-    <div>
+    <>
       <Link
         to="https://wa.me/923427084929?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20your%products"
         className="whatsapp_float"
@@ -25,7 +25,7 @@ const index = () => {
           <img src={whatsapp} alt="" width={50} height={50} />
         </StyledWSpace>
       </Link>
-    </div>
+    </>
   );
 };
 

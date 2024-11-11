@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Typography, Breadcrumb, Space, Input } from "antd";
+import { Switch, Typography, Breadcrumb, Space, Input, Flex } from "antd";
 import ApiDataComponent from "../../components/ApiDataComponent";
 import styled from "styled-components";
 import { productSearch } from "../../redux/productAction";
@@ -27,14 +27,6 @@ const StyledBreadcrumb = styled(Breadcrumb)`
   }
 `;
 
-const StyledMainDiv = styled.div`
-  margin: 0;
-  display: flex;
-  /* background-color: #061725; */
-  flex-direction: column;
-  align-items: center;
-`;
-
 const StyledSpace = styled(Space)`
   margin: 1rem 0rem;
 `;
@@ -45,47 +37,24 @@ const StyledInput = styled(Input)`
 const App = () => {
   const dispatch = useDispatch();
 
-  const [ellipsis, setEllipsis] = useState(true);
-
   return (
-    <StyledMainDiv>
+    <Flex vertical align="center">
       <StyledTitle className="about">SHOP</StyledTitle>
       <StyledBreadcrumb>
         <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
         <StyledBreadcrumbItemCurr>SHOP</StyledBreadcrumbItemCurr>
       </StyledBreadcrumb>
-      {/* <StyledSpace>
+
+      <StyledSpace>
         <StyledInput
           type="text"
           placeholder="Search Product"
           onChange={(event) => dispatch(productSearch(event.target.value))}
         />
-      </StyledSpace> */}
-      {/* <div style={{ width: "400px" }}>
-        <Switch
-          checked={ellipsis}
-          onChange={() => {
-            setEllipsis(!ellipsis);
-          }}
-        />
-
-        <Paragraph ellipsis={ellipsis}>
-          I love the policy of Gk jewellers. Exchange. Policy is quite real. And
-          the product emarld ring was outstanding.
-        </Paragraph>
-        <Paragraph
-          ellipsis={
-            ellipsis ? { rows: 1, expandable: true, symbol: "more" } : false
-          }
-        >
-          One can say that Gk jewellers is the name of trust.I love the policy
-          of Gk jewellers. Exchange. Policy is quite real. And the product
-          emarld ring was outstanding.
-        </Paragraph>
-      </div> */}
+      </StyledSpace>
 
       <ApiDataComponent />
-    </StyledMainDiv>
+    </Flex>
   );
 };
 

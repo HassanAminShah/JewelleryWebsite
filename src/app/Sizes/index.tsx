@@ -36,7 +36,7 @@ const columns: TableProps<DataType>["columns"] = [
   },
 ];
 
-const StyledSpace = styled.div`
+const StyledFlex = styled(Flex)`
   width: 100%;
 `;
 const Stylediframe = styled.iframe`
@@ -155,7 +155,7 @@ const App = () => (
       </StyledMethodSpace>
     </Flex>
 
-    <StyledSpace>
+    <StyledFlex vertical>
       <Stylediframe
         style={{ margin: "2rem" }}
         src="https://www.youtube.com/embed/m6oeUp2RT7o"
@@ -175,7 +175,7 @@ const App = () => (
         dataSource={RingSizes}
         pagination={false}
       />
-    </StyledSpace>
+    </StyledFlex>
 
     <StyledEndText vertical>
       <StyledPara>

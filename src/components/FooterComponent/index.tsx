@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Divider, Typography } from "antd";
+import { Divider, Space, Typography } from "antd";
 
 const { Text } = Typography;
 
@@ -10,7 +10,7 @@ const StyledText = styled(Text)`
   color: white;
   padding: 2rem 0rem;
 `;
-const StyledSpan = styled.span`
+const StyledSpan = styled(Space)`
   font-weight: 500;
 `;
 const StyledDivider = styled(Divider)`

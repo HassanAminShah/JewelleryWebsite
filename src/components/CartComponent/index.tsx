@@ -17,19 +17,13 @@ interface DataType {
   address: string;
   tags: string[];
 }
-interface DataType1 {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: string[];
-}
 
-const StyledSpace = styled.div`
-  padding: 0rem 2rem;
+const StyledSpace = styled(Space)`
+  padding: 2rem;
   width: 70%;
+  .ant-space-item {
+    width: 100%;
+  }
 `;
 
 const StyledMainDiv = styled(Flex)`
@@ -41,6 +35,7 @@ const StyledInSpace = styled(Flex)`
 `;
 
 const StyledCard = styled(Card)`
+  margin: 2rem 0rem;
   height: 200px;
   width: 300px;
 `;
@@ -98,11 +93,11 @@ const CartComponent = () => {
   const columns: TableProps<DataType>["columns"] = [
     {
       title: "Image",
-      dataIndex: "image", // this is the value that is parsed from the DB / server side
+      dataIndex: "image",
       key: "image",
       render: (theImageURL) => (
         <img width={50} height={50} alt={theImageURL} src={theImageURL} />
-      ), // 'theImageURL' is the variable you must declare in order the render the URL
+      ),
     },
     {
       title: "Title",

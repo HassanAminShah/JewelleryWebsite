@@ -22,7 +22,7 @@ const StyledSpace = styled(Flex)`
 `;
 
 const StyledImgsFlex = styled(Flex)`
-  padding: 2rem 0rem;
+  padding: 2rem 4rem;
 `;
 
 const StyledText = styled(Text)`
@@ -84,12 +84,6 @@ const index = () => {
             us.
           </Paragraph>
         </StyledSpace>
-        {/* <StyledSpace>
-        <img src={easyReturn} alt="" />
-      </StyledSpace>
-      <StyledSpace>
-        <img src={support} alt="" />
-      </StyledSpace> */}
       </Flex>
     </StyledImgsFlex>
   );

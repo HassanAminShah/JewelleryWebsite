@@ -17,7 +17,6 @@ import Whatsapp from "../Whatsapp/index";
 const { Content, Sider } = Layout;
 
 const StyledLayout = styled(Layout)`
-  /* background-color: #061725; */
   color: white;
 `;
 
@@ -27,7 +26,7 @@ const LayoutComponent = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   return (
-    <div>
+    <>
       <StyledLayout>
         <Header />
         <Content>
@@ -38,14 +37,13 @@ const LayoutComponent = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            {/* <Homepage /> */}
             <AppRoutes />
           </Layout>
         </Content>
         <Whatsapp />
         <FooterComponent />
       </StyledLayout>
-    </div>
+    </>
   );
 };
 

@@ -9,7 +9,9 @@ function* getProducts() {
 }
 
 function* searchProducts(data) {
-  let result = yield fetch(`https://fakestoreapi.com/products?q=${data.query}`);
+  let result = yield fetch(
+    `https://fakestoreapi.com/products/category/${data.query}`
+  );
   result = yield result.json();
   yield put({ type: SET_PRODUCT_LIST, data: result });
 }
@@ -18,4 +20,5 @@ function* productSaga() {
   yield takeEvery(PRODUCT_LIST, getProducts);
   yield takeEvery(PRODUCT_SEARCH, searchProducts);
 }
+
 export default productSaga;

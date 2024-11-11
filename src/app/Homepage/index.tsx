@@ -13,8 +13,7 @@ import about3 from "../../images/about3.jpg";
 const { Meta } = Card;
 const { Text, Title, Link, Paragraph } = Typography;
 
-const StyledDiv = styled.div`
-  /* background-color: #061725; */
+const StyledHeadFlex = styled.div`
   width: 100%;
   color: white;
   position: relative;
@@ -23,7 +22,6 @@ const StyledDiv = styled.div`
 const StyledMainDiv = styled.div`
   margin: 0;
   display: flex;
-  /* background-color: #061725; */
   flex-direction: column;
   align-items: center;
 `;
@@ -35,21 +33,24 @@ const StyledImg = styled.div`
   }
 `;
 
-const StyledH1 = styled.h1`
+const StyledH1 = styled(Text)`
   color: #ceaa82;
   font-size: 100px;
+  font-weight: 500;
   position: absolute;
   right: 30%;
   top: 15%;
 `;
 
-const StyledH3 = styled.h3`
-  /* color: white; */
+const StyledH3 = styled(Paragraph)`
+  padding-top: 2rem;
   font-size: 52px;
   font-weight: 600;
 `;
 
 const StyledH2 = styled(StyledH3)`
+  padding-top: 0;
+  color: white;
   font-size: 30px;
   width: 55%;
   position: absolute;
@@ -66,9 +67,6 @@ const StyledButton = styled(Button)`
   top: 60%;
 `;
 
-const StyledApiSpace = styled(Space)`
-  /* width: 100%; */
-`;
 const StyledCol = styled(Col)`
   padding: 0;
   margin: 0;
@@ -124,7 +122,7 @@ const Index = () => {
   return (
     <>
       <StyledMainDiv>
-        <StyledDiv>
+        <StyledHeadFlex>
           <StyledH1>GK JEWELERS</StyledH1>
           <StyledH2>
             Pakistan's Premier Gemstone Destination – Your Trusted Source for
@@ -134,13 +132,13 @@ const Index = () => {
           <StyledImg>
             <img src={Gemstone} alt="" />
           </StyledImg>
-        </StyledDiv>
+        </StyledHeadFlex>
 
         <StyledH3>NEW ARRIVALS</StyledH3>
 
-        <StyledApiSpace>
+        <Space>
           <ApiDataComponent />
-        </StyledApiSpace>
+        </Space>
       </StyledMainDiv>
       <StyledSpace>
         <Row gutter={16} style={{ width: "100%" }}>
@@ -181,7 +179,7 @@ const Index = () => {
                 </StyledFlex>
               </StyledRelFlex>
             </Styled1Card>
-          </StyledCol>{" "}
+          </StyledCol>
           <StyledCol span={8}>
             <Styled1Card hoverable cover={<img alt="example" src={about3} />}>
               <StyledRelFlex>
