@@ -58,6 +58,11 @@ const mockData = [
     text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
     score: 4,
   },
+  {
+    id: 10,
+    text: `5 out of 5 satrs because jo meny order kia same wohi mila or zbrdast paking ma mila jazak Allah gk jewelers❣️❣️❣️`,
+    score: 4,
+  },
 ];
 
 const StyledFlex = styled(Flex)`
@@ -103,15 +108,21 @@ const StyledText = styled(Paragraph)`
   text-align: start;
   margin-top: 1rem;
 `;
-
 const StarRating = () => {
-  const [visible, setVisible] = useState(5);
+  const INITIAL_VISIBLE_COUNT = 5;
+  const [visible, setVisible] = useState(INITIAL_VISIBLE_COUNT);
   const [showMore, setShowMore] = useState(false);
 
   const handleMoreData = () => {
     setVisible((prevValue) => prevValue + 5);
+  };
+
+  const handleLessData = () => {
+    setVisible((value) => value - 5);
     setShowMore(false);
   };
+
+  const allItemsDisplayed = visible >= mockData.length;
 
   return (
     <Flex align="center" vertical>
@@ -137,7 +148,15 @@ const StarRating = () => {
           </StyledCard>
         ))}
       </StyledFlex>
-      <StyledButton onClick={handleMoreData}>Show More</StyledButton>
+
+      <Flex gap="small">
+        {!allItemsDisplayed && (
+          <StyledButton onClick={handleMoreData}>Show More</StyledButton>
+        )}
+        {visible > INITIAL_VISIBLE_COUNT && (
+          <StyledButton onClick={handleLessData}>Show Less</StyledButton>
+        )}
+      </Flex>
     </Flex>
   );
 };

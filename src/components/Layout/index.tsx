@@ -14,6 +14,8 @@ import Header from "../HeaderComponent";
 import Homepage from "../../app/Homepage/index";
 import { Link } from "react-router-dom";
 import Whatsapp from "../Whatsapp/index";
+import UserLayout from "../UserLayout";
+
 const { Content, Sider } = Layout;
 
 const StyledLayout = styled(Layout)`

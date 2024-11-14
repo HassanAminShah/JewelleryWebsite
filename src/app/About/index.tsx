@@ -105,9 +105,6 @@ const StyledTitle = styled(Text)`
 
 const StyledBreadcrumbItem = styled(Breadcrumb.Item)`
   color: white;
-`;
-const StyledBreadcrumbItemCurr = styled(Breadcrumb.Item)`
-  color: white;
   font-weight: 500;
 `;
 
@@ -121,13 +118,14 @@ const StyledBreadcrumb = styled(Breadcrumb)`
     color: white;
   }
 `;
+
 const index = () => {
   return (
     <StyledMSpace direction="vertical">
       <StyledTitle className="about">ABOUT STONES</StyledTitle>
       <StyledBreadcrumb>
         <StyledBreadcrumbItem>HOME</StyledBreadcrumbItem>
-        <StyledBreadcrumbItemCurr>About Stones</StyledBreadcrumbItemCurr>
+        <StyledBreadcrumbItem>ABOUT STONES</StyledBreadcrumbItem>
       </StyledBreadcrumb>
       <StyledMainSpace>
         <StyledImageSpace>

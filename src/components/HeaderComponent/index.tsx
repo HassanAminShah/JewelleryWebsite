@@ -12,6 +12,10 @@ import { useSelector } from "react-redux";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 
+const { Text } = Typography;
+
+const { Header } = Layout;
+
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items1: MenuItem[] = [
@@ -61,10 +65,6 @@ const items1: MenuItem[] = [
     key: "contact",
   },
 ];
-
-const { Text } = Typography;
-
-const { Header } = Layout;
 
 const StyledHeader = styled(Header)`
   background: #061725;
@@ -163,7 +163,7 @@ const App = () => {
 
         <Link to="/cart">
           <Flex justify="center" align="center">
-            <Link to="/">
+            <Link to="/login">
               <StyledCart>
                 <UserOutlined />
               </StyledCart>

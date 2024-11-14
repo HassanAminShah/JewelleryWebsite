@@ -34,11 +34,6 @@ const StyledPr = styled(Paragraph)`
   font-weight: 600;
 `;
 
-const StyledLoadButton = styled(Button)`
-  background-color: #061725;
-  color: #ceaa82;
-`;
-
 const StyledCard = styled(Card)`
   .ant-card-body {
     padding: 0.5rem;
@@ -60,15 +55,29 @@ const StyledMain = styled(Flex)`
   justify-content: center;
 `;
 
+const StyledLoadButton = styled(Button)`
+  background-color: #061725;
+  color: #ceaa82;
+`;
+
 const Index = () => {
-  const [visible, setVisible] = useState(4);
+  const INITIAL_VISIBLE_COUNT = 4;
+  const [visible, setVisible] = useState(INITIAL_VISIBLE_COUNT);
+  const [showMore, setShowMore] = useState(false);
 
   const handleMoreData = () => {
     setVisible((prevValue) => prevValue + 4);
   };
 
+  const handleLessData = () => {
+    setVisible((value) => value - 4);
+    setShowMore(false);
+  };
+
   const dispatch = useDispatch();
   const data = useSelector((state: any) => state.productData);
+
+  const allItemsDisplayed = visible >= data.length;
 
   useEffect(() => {
     dispatch(productList());
@@ -99,7 +108,18 @@ const Index = () => {
           </StyledCard>
         ))}
       </StyledRow>
-      <Button onClick={handleMoreData}>Show More</Button>
+      <Space>
+        {!allItemsDisplayed && (
+          <StyledLoadButton onClick={handleMoreData}>
+            Show More
+          </StyledLoadButton>
+        )}
+        {visible > INITIAL_VISIBLE_COUNT && (
+          <StyledLoadButton onClick={handleLessData}>
+            Show Less
+          </StyledLoadButton>
+        )}
+      </Space>{" "}
     </StyledMain>
   );
 };
